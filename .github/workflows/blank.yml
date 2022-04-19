@@ -10,6 +10,8 @@ jobs:
   check-for-release-tag:
     runs-on: ubuntu-latest
     steps:
+      - name: Show Folders
+        run: ls -a
       - name: Check for Release Tag
         run: echo build-${{ github.sha }}
 #      - name: Release tag exists
