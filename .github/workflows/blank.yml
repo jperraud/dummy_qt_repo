@@ -14,5 +14,5 @@ jobs:
         if: github.ref_type != 'tag'
         run: echo "Hallo"
       - name: Release tag exists
-        if: github.ref_type != 'tag'
+        if: github.ref_type == 'tag'
         run: echo "Hallo"
