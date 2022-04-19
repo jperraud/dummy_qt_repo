@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for Release Tag
-        run: exit {github.ref_type != 'tag'}
+        run: exit github.ref_type != 'tag'
 #      - name: Release tag exists
 #        if: github.ref_type == 'tag'
 #        run: exit 0  
