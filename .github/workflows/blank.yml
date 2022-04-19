@@ -15,4 +15,9 @@ jobs:
         run: exit 1 
       - name: Release tag exists
         if: github.ref_type != 'tag'
-        run: exit 0
+        run: exit 0  
+  next-job:
+    needs: check-for-release-tag
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    
