@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  if-else:
+    runs-on: ubuntu-latest
+    steps:
+      if: github.ref_type == 'tag'
+        name: Release tag is missing
+        run: exit 1
