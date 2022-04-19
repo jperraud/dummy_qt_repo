@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Release tag is missing
         if: github.ref_type != 'tag'
-        run: echo "Hallo"
+        run: exit 1 
       - name: Release tag exists
         if: github.ref_type == 'tag'
-        run: echo "Hallo"
+        run: exit 0
