@@ -15,8 +15,9 @@ jobs:
             sha=$(git rev-parse HEAD)
             echo "$sha"
             echo "::set-output name=count::$sha"
+          id: sha  
         - name: Print output
-          run: echo "${{ count }}"
+          run: echo "${{ steps.sha.count }}"
           
 #  check-for-release-tag:
 #    runs-on: ubuntu-latest
