@@ -16,7 +16,7 @@ jobs:
           run: |
             sha=$(git rev-parse HEAD)
             echo "$sha"
-            echo "::set-output name=count::"$sha"
+            echo "::set-output name=count::"$sha""
           id: sha  
         - name: Print output
           run: echo "${{ steps.sha.outputs.count }}"
