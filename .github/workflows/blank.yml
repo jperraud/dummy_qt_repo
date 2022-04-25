@@ -7,21 +7,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-for-release-tag:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Show Folders
-        run: ls -a
-      - name: Check for Release Tag
-        run: echo build-${{ github.sha }}
+    test-for-set-output:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print sha
+          run: |
+            sha=$(git rev-parse HEAD)
+            echo "$sha"
+            echo "::set-output name=count::$sha"
+        - name: Print output
+          run: echo "${{ count }}"
+          
+#  check-for-release-tag:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Show Folders
+#        run: ls -a
+#      - name: Check for Release Tag
+#        run: echo build-${{ github.sha }}
 #      - name: Release tag exists
 #        if: github.ref_type == 'tag'
 #        run: exit 0  
-  next-job:
-    needs: check-for-release-tag
-    if: ${{ success() }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello World
-        run: echo Hello World
+#  next-job:
+#    needs: check-for-release-tag
+#    if: ${{ success() }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Hello World
+#        run: echo Hello World
     
