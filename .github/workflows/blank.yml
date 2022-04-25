@@ -19,7 +19,7 @@ jobs:
             echo "::set-output name=count::"HABAHABA""
           id: sha  
         - name: Print output
-          run: echo "${{ steps.sha.count }}"
+          run: echo "${{ steps.sha.outputs.count }}"
           
 #  check-for-release-tag:
 #    runs-on: ubuntu-latest
